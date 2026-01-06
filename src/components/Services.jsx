@@ -26,7 +26,8 @@ const ServiceCard = ({ icon, title, description, features, delay }) => (
             borderRadius: '12px',
             display: 'grid', placeItems: 'center',
             border: '1px solid rgba(251, 191, 36, 0.3)',
-            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.3)'
+            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.3)',
+            transition: 'all 0.4s ease'
         }}>
             {icon}
         </div>
@@ -71,11 +72,24 @@ const ServiceCard = ({ icon, title, description, features, delay }) => (
                 padding: '8px 20px',
                 width: '100%',
                 textAlign: 'center',
-                display: 'block'
+                display: 'block',
+                transition: 'all 0.3s ease'
             }}>
                 View Details
             </a>
         </div>
+
+        <style jsx>{`
+            .emerald-card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 20px 40px -12px rgba(251, 191, 36, 0.15);
+                border-color: rgba(251, 191, 36, 0.4);
+            }
+            .emerald-card:hover .btn-outline-gold {
+                background: rgba(251, 191, 36, 0.1);
+                color: #fff;
+            }
+        `}</style>
     </div>
 );
 

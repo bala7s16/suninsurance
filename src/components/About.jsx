@@ -35,7 +35,7 @@ const About = () => {
                     </div>
 
                     <div style={{ flex: '1 1 500px' }}>
-                        <h2 style={{ fontSize: '2.5rem', marginBottom: '25px' }}>About Sun Insurance</h2>
+                        <h2 className="heading-display" style={{ fontSize: '2.5rem', marginBottom: '25px', textAlign: 'left' }}>About Sun Insurance</h2>
                         <h4 style={{ color: '#fff', fontSize: '1.4rem', marginBottom: '15px' }}>
                             Led by Mr. Somasundaram (Sundar)
                         </h4>
@@ -46,14 +46,26 @@ const About = () => {
                             Specializing in Vehicle and Health insurance, we partner with top-tier providers like Chola MS and IFFCO Tokio to ensure claims are settled fast and support is always available. Additionally, our Small Finance division helps turn your dream of owning a vehicle into reality.
                         </p>
 
-                        <div style={{ display: 'flex', gap: '40px' }}>
-                            <div>
-                                <h3 style={{ fontSize: '2.5rem', margin: 0, color: 'var(--color-primary)' }}>12+</h3>
-                                <p style={{ fontSize: '0.9rem', color: '#fff' }}>Years Experience</p>
+                        <div style={{ display: 'flex', gap: '20px', marginTop: '40px' }}>
+                            <div style={{
+                                padding: '20px 30px',
+                                background: 'rgba(251, 191, 36, 0.05)',
+                                border: '1px solid rgba(251, 191, 36, 0.1)',
+                                borderRadius: '12px',
+                                flex: 1
+                            }}>
+                                <h3 style={{ fontSize: '2.5rem', margin: 0, color: '#fbbf24', fontFamily: "'Playfair Display', serif" }}>12+</h3>
+                                <p style={{ fontSize: '0.9rem', color: '#e5e7eb', marginTop: '5px' }}>Years Experience</p>
                             </div>
-                            <div>
-                                <h3 style={{ fontSize: '2.5rem', margin: 0, color: 'var(--color-primary)' }}>1000+</h3>
-                                <p style={{ fontSize: '0.9rem', color: '#fff' }}>Happy Clients</p>
+                            <div style={{
+                                padding: '20px 30px',
+                                background: 'rgba(251, 191, 36, 0.05)',
+                                border: '1px solid rgba(251, 191, 36, 0.1)',
+                                borderRadius: '12px',
+                                flex: 1
+                            }}>
+                                <h3 style={{ fontSize: '2.5rem', margin: 0, color: '#fbbf24', fontFamily: "'Playfair Display', serif" }}>1000+</h3>
+                                <p style={{ fontSize: '0.9rem', color: '#e5e7eb', marginTop: '5px' }}>Happy Clients</p>
                             </div>
                         </div>
                     </div>

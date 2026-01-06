@@ -106,12 +106,12 @@ const Contact = () => {
                 </div>
 
                 <footer style={{
-                    marginTop: '80px',
+                    marginTop: '120px', // More breathing room
                     textAlign: 'center',
-                    borderTop: '1px solid rgba(255,255,255,0.1)',
-                    paddingTop: '40px',
-                    color: '#6b7280',
-                    fontSize: '0.85rem',
+                    borderTop: '1px solid rgba(255,255,255,0.05)',
+                    paddingTop: '60px',
+                    color: '#9ca3af',
+                    fontSize: '0.9rem',
                     letterSpacing: '1px',
                     textTransform: 'uppercase',
                     display: 'flex',
@@ -167,12 +167,13 @@ const inputStyle = {
     background: 'rgba(255,255,255,0.03)',
     border: '1px solid rgba(255,255,255,0.1)',
     borderLeft: '2px solid #fbbf24',
-    padding: '15px 20px',
+    padding: '18px 25px', // More padding
     color: '#fff',
     outline: 'none',
     fontFamily: "'Manrope', sans-serif",
-    fontSize: '0.95rem',
-    transition: 'all 0.3s ease'
+    fontSize: '1rem',
+    transition: 'all 0.3s ease',
+    boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
 };
 
 export default Contact;

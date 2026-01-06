@@ -1,42 +1,14 @@
 import React from 'react';
+import partnersImage from '../assets/partners_consolidated.png';
 
-const PartnerLogo = ({ name }) => (
-    <div style={{
-        padding: '30px 50px',
-        border: '1px solid rgba(251, 191, 36, 0.1)',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        background: 'linear-gradient(180deg, rgba(6, 78, 59, 0.2) 0%, rgba(6, 78, 59, 0) 100%)',
-        minWidth: '200px',
-        position: 'relative',
-        overflow: 'hidden'
-    }}>
-        <div style={{
-            position: 'absolute',
-            top: 0, left: 0, width: '2px', height: '100%',
-            background: 'linear-gradient(180deg, transparent, #fbbf24, transparent)',
-            opacity: 0.5
-        }}></div>
-
-        <h4 style={{
-            fontSize: '1.2rem',
-            color: '#d1d5db',
-            margin: 0,
-            textTransform: 'uppercase',
-            letterSpacing: '2px',
-            fontFamily: "'Manrope', sans-serif",
-            fontWeight: '600'
-        }}>
-            {name}
-        </h4>
-    </div>
-);
-
+/* 
+ * Partners Component
+ * Displays a consolidated image of all our trusted insurance partners.
+ */
 const Partners = () => {
     return (
         <section id="partners" style={{
-            padding: '100px 0',
+            padding: '80px 0',
             background: '#022c22',
             borderTop: '1px solid rgba(251, 191, 36, 0.1)',
             borderBottom: '1px solid rgba(251, 191, 36, 0.1)'
@@ -44,51 +16,47 @@ const Partners = () => {
             <div className="container">
                 <div className="partners-container">
                     <div className="partners-header">
-                        <div style={{ width: '40px', height: '2px', background: '#fbbf24', marginBottom: '20px' }}></div>
+                        <div style={{ width: '40px', height: '2px', background: '#fbbf24', margin: '0 auto 20px' }}></div>
                         <h3 style={{ fontSize: '2rem', color: '#fff', marginBottom: '10px', fontFamily: "'Playfair Display', serif" }}>Trusted Alliances</h3>
                         <p style={{ fontSize: '0.9rem', color: '#9ca3af', lineHeight: '1.6' }}>We partner with the industry's most respected institutions.</p>
                     </div>
 
-                    <div className="partners-scroll">
-                        <PartnerLogo name="Chola MS" />
-                        <PartnerLogo name="IFFCO Tokio" />
-                        <PartnerLogo name="Star Health" />
-                        <PartnerLogo name="United India" />
-                        <PartnerLogo name="HDFC Ergo" />
+                    <div className="partners-image-wrapper">
+                        <img
+                            src={partnersImage}
+                            alt="Our Trusted Insurance Partners - General and Health Insurance"
+                            className="partners-img"
+                        />
                     </div>
                 </div>
             </div>
-            <style jsx>{`
+            <style>{`
                 .partners-container {
                     display: flex;
-                    align-items: center;
-                    gap: 60px;
-                    flex-wrap: wrap;
+                    flex-direction: column;
+                    gap: 40px;
+                    text-align: center;
                 }
-                .partners-header {
-                    flex: 0 0 250px;
+                .partners-image-wrapper {
+                    width: 100%;
+                    max-width: 1200px;
+                    margin: 0 auto;
+                    border-radius: 12px;
+                    overflow: hidden;
+                    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+                    border: 1px solid rgba(251, 191, 36, 0.2);
+                    background: rgba(255, 255, 255, 0.05); /* Slight backdrop */
                 }
-                .partners-scroll {
-                    flex: 1;
-                    display: flex;
-                    gap: 20px;
-                    overflow-x: auto;
-                    padding-bottom: 20px;
-                    scrollbar-width: none;
-                    min-width: 0; /* Important for flex child with overflow */
+                .partners-img {
+                    width: 100%;
+                    height: auto;
+                    display: block;
+                    object-fit: contain;
                 }
                 @media (max-width: 768px) {
-                    .partners-container {
-                        flex-direction: column;
-                        align-items: flex-start;
-                        gap: 30px;
-                    }
-                    .partners-header {
-                        flex: auto;
-                        width: 100%;
-                    }
-                    .partners-scroll {
-                        width: 100%;
+                    .partners-image-wrapper {
+                        border-radius: 8px;
+                        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
                     }
                 }
             `}</style>

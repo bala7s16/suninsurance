@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import logo from '../assets/logo.png';
 
 const Header = () => {
     const [scrolled, setScrolled] = useState(false);
@@ -41,26 +42,35 @@ const Header = () => {
                 position: 'relative'
             }}>
                 <div className="logo" style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                    {/* Abstract Emerald Icon */}
-                    <div style={{
-                        width: '40px',
-                        height: '40px',
-                        background: 'linear-gradient(45deg, #064e3b, #065f46)',
-                        border: '1px solid #fbbf24',
-                        transform: 'rotate(45deg)',
-                        display: 'grid',
-                        placeItems: 'center',
-                        boxShadow: '0 0 15px rgba(251, 191, 36, 0.2)'
-                    }}>
-                        <span style={{
-                            transform: 'rotate(-45deg)',
-                            color: '#fbbf24',
-                            fontWeight: 'bold',
-                            fontSize: '18px',
-                            fontFamily: "'Playfair Display', serif"
-                        }}>S</span>
+                    {/* SVG Implementation of User's Logo for Perfect Sharpness */}
+                    <div className="logo-svg-container" style={{ width: '55px', height: '60px', position: 'relative' }}>
+                        <svg viewBox="0 0 100 110" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '100%', filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.2))' }}>
+                            {/* Sun Rays */}
+                            <path d="M50 25V10M50 25L50 15" stroke="#fbbf24" strokeWidth="2" strokeLinecap="round" />
+                            <path d="M65 28L75 18" stroke="#fbbf24" strokeWidth="2" strokeLinecap="round" />
+                            <path d="M35 28L25 18" stroke="#fbbf24" strokeWidth="2" strokeLinecap="round" />
+                            <path d="M78 38L88 32" stroke="#fbbf24" strokeWidth="2" strokeLinecap="round" />
+                            <path d="M22 38L12 32" stroke="#fbbf24" strokeWidth="2" strokeLinecap="round" />
+                            <path d="M85 50L95 48" stroke="#fbbf24" strokeWidth="2" strokeLinecap="round" />
+                            <path d="M15 50L5 48" stroke="#fbbf24" strokeWidth="2" strokeLinecap="round" />
+
+                            {/* Rising Sun */}
+                            <path d="M75 50C75 36.1929 63.8071 25 50 25C36.1929 25 25 36.1929 25 50" fill="#fbbf24" />
+
+                            {/* Shield */}
+                            <path d="M20 50H80V70C80 86.5685 66.5685 100 50 100C33.4315 100 20 86.5685 20 70V50Z" fill="#0f172a" stroke="#fbbf24" strokeWidth="1" />
+
+                            {/* Bar Graph & Arrow */}
+                            <rect x="35" y="75" width="6" height="15" rx="1" fill="white" />
+                            <rect x="47" y="65" width="6" height="25" rx="1" fill="white" />
+                            <rect x="59" y="58" width="6" height="32" rx="1" fill="white" />
+
+                            {/* Arrow */}
+                            <path d="M38 72L48 62L58 55L70 45" stroke="#fbbf24" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                            <path d="M70 45L62 45M70 45L70 53" stroke="#fbbf24" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
                     </div>
-                    <div style={{ paddingLeft: '10px' }}>
+                    <div style={{ paddingLeft: '0px' }}>
                         <h1 style={{
                             fontSize: '1.4rem',
                             fontWeight: '700',
