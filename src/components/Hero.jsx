@@ -36,62 +36,37 @@ const Hero = () => {
                 pointerEvents: 'none'
             }}></div>
 
-            <div className="container" style={{
-                display: 'grid',
-                gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)', // 50/50 Split
-                gap: '40px',
-                alignItems: 'center',
+            <div className="container hero-container" style={{
                 position: 'relative',
                 zIndex: 2,
                 maxWidth: '1200px',
                 margin: '0 auto',
-                padding: '0 20px'
+                padding: '0 20px',
+                width: '100%' // Ensure width 100%
             }}>
 
                 {/* Left Content Column */}
-                <div style={{ zIndex: 3 }}>
+                <div style={{ zIndex: 3 }} className="hero-content">
 
                     {/* Badge */}
-                    <div style={{
-                        display: 'inline-block',
-                        border: '1px solid rgba(251, 191, 36, 0.3)',
-                        background: 'rgba(255, 255, 255, 0.05)',
-                        backdropFilter: 'blur(12px)',
-                        padding: '12px 28px',
-                        borderRadius: '50px',
-                        marginTop: '30px',
-                        marginBottom: '40px',
-                        color: '#fbbf24',
-                        letterSpacing: '3px',
-                        textTransform: 'uppercase',
-                        fontSize: '0.8rem',
-                        fontWeight: '700',
-                        boxShadow: '0 8px 32px rgba(0,0,0,0.2)'
-                    }}>
+                    <div className="hero-badge">
                         Based in Thoothukudi • Pan-India Service
                     </div>
 
                     {/* Headline */}
-                    <h1 className="heading-display" style={{ marginBottom: '30px', textAlign: 'left', fontSize: '3.5rem', lineHeight: '1.2' }}>
+                    <h1 className="heading-display">
                         Elite Vehicle Insurance,<br />
                         <span style={{ color: '#fbbf24', fontStyle: 'italic' }}>Securing Your Journey.</span>
                     </h1>
 
                     {/* Description */}
-                    <p style={{
-                        fontSize: '1.2rem',
-                        color: '#e5e7eb',
-                        maxWidth: '90%',
-                        marginBottom: '50px',
-                        lineHeight: '1.8',
-                        fontWeight: '300'
-                    }}>
+                    <p className="hero-description">
                         Specialized protection for your luxury vehicles, commercial fleets, and health.
                         Partner with Sun Insurance & Finance for premier coverage and comprehensive financial security tailored to your needs.
                     </p>
 
                     {/* Buttons */}
-                    <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
+                    <div className="hero-buttons">
                         <a href="#contact" className="btn-prestige">
                             Get Vehicle Quote
                         </a>
@@ -142,41 +117,143 @@ const Hero = () => {
             </div>
 
             <style>{`
+                /* Default Desktop Styles */
+                .hero-container {
+                    display: grid;
+                    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+                    gap: 40px;
+                    align-items: center;
+                }
+                .hero-content {
+                    /* Ensure content aligns center */
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+                }
+                .hero-badge {
+                    display: inline-block;
+                    border: 1px solid rgba(251, 191, 36, 0.3);
+                    background: rgba(255, 255, 255, 0.05);
+                    backdrop-filter: blur(12px);
+                    padding: 12px 28px;
+                    border-radius: 50px;
+                    margin-top: 30px;
+                    margin-bottom: 40px;
+                    color: #fbbf24;
+                    letter-spacing: 3px;
+                    text-transform: uppercase;
+                    font-size: 0.8rem;
+                    font-weight: 700;
+                    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+                }
+                .heading-display {
+                    margin-bottom: 30px;
+                    text-align: center;
+                    font-size: 3.5rem;
+                    line-height: 1.2;
+                }
+                .hero-description {
+                    font-size: 1.2rem;
+                    color: #e5e7eb;
+                    max-width: 90%;
+                    margin-bottom: 50px;
+                    line-height: 1.8;
+                    font-weight: 300;
+                    text-align: center;
+                }
+                .hero-buttons {
+                    display: flex;
+                    gap: 20px;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                }
+
+                /* Mobile Styles */
                 @media (max-width: 900px) {
                     #home {
-                        padding-top: 140px !important; /* Extra padding for mobile */
-                        justify-content: flex-start; /* Start from top on mobile to avoid centering issues */
+                        padding-top: 100px !important;
+                        display: block !important;
+                        height: auto !important;
+                        min-height: 100vh;
                     }
-                    .container {
-                        grid-template-columns: 1fr !important;
-                        gap: 20px !important; /* Reduced gap */
-                        text-align: center;
+                    .hero-container {
+                        display: flex !important;
+                        flex-direction: column;
+                        gap: 30px !important;
+                        text-align: center !important;
+                        padding-left: 20px !important;
+                        padding-right: 20px !important;
+                        width: 100% !important;
+                        max-width: 100vw !important; /* Force width constraint */
+                        overflow-x: hidden;
+                        align-items: center !important; /* Ensure flex items start center */
                     }
                     .hero-image-container {
-                        height: 400px !important;
-                        order: 0;
-                        /* Adjust mask for mobile to be less aggressive if needed, or keep consistent */
-                        mask-image: radial-gradient(ellipse at center, black 50%, transparent 70%);
-                        -webkit-mask-image: radial-gradient(ellipse at center, black 50%, transparent 70%);
+                        height: 250px !important; /* Smaller image on mobile */
+                        width: 100% !important;
+                        margin-bottom: 20px;
+                        order: -1 !important; 
+                        
+                        mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+                        -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
                     }
-                    .container > div:first-child {
+                    .hero-content {
+                        width: 100% !important;
                         display: flex;
                         flex-direction: column;
-                        align-items: center;
+                        align-items: center !important;
                     }
                     .heading-display {
                         text-align: center !important;
-                        fontSize: 2.2rem !important;
+                        font-size: 2rem !important; /* Much smaller for mobile */
+                        width: 100%;
+                        line-height: 1.3 !important;
+                        word-wrap: break-word;
+                    }
+                    .heading-display br {
+                        display: none;
                     }
                     .hero-badge {
-                        margin-top: 30px !important; /* Push down significantly */
+                        margin-top: 10px !important;
                         margin-bottom: 20px !important;
+                        align-self: center;
+                        padding: 8px 20px !important; /* Compact badge */
+                        font-size: 0.7rem !important;
                     }
-                    .container p {
+                    .hero-description {
+                        text-align: center !important;
+                        font-size: 1rem !important;
+                        max-width: 100% !important;
+                    }
+                    .hero-buttons {
+                        justify-content: center !important;
+                        width: 100%;
+                        display: flex;
+                        flex-direction: row !important; /* Single line */
+                        flex-wrap: wrap; 
+                        gap: 15px;
+                        align-items: center; /* Center vertical */
+                    }
+                    /* Custom White styling for mobile override or general? 
+                       User asked for "white color". Making buttons white themed. 
+                    */
+                    .btn-prestige {
+                        background: #ffffff !important;
+                        color: #022c22 !important;
+                    }
+                    .btn-outline-gold {
+                        border-color: #ffffff !important;
+                        color: #ffffff !important;
+                    }
+                    .hero-buttons a {
+                        flex: 0 0 auto; /* Do not stretch */
+                        width: auto; /* Auto width */
+                        display: inline-block; /* Behave like buttons */
                         text-align: center;
-                    }
-                    .container > div:first-child > div:last-child {
-                        justify-content: center;
+                        padding: 12px 25px !important;
+                        font-size: 0.9rem !important;
+                        max-width: 100%; /* Prevent overflow */
                     }
                 }
             `}</style>

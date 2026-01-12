@@ -29,21 +29,24 @@ const Header = () => {
                 position: 'fixed',
                 top: 0,
                 transition: 'all 0.4s ease',
-                padding: scrolled ? '15px 0' : '30px 0',
+                padding: scrolled ? '15px 0' : '25px 0', /* Reduced default padding */
                 zIndex: 1000,
                 borderBottom: scrolled ? '1px solid rgba(251, 191, 36, 0.2)' : 'none',
                 boxShadow: scrolled ? '0 10px 30px rgba(0,0,0,0.3)' : 'none'
             }}
         >
-            <div className="container" style={{
+            <div className="header-inner" style={{
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
-                position: 'relative'
+                width: '100%',
+                maxWidth: '100%',
+                padding: '0 40px', /* Add horizontal padding for full-width look */
+                boxSizing: 'border-box'
             }}>
-                <div className="logo" style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                    {/* SVG Implementation of User's Logo for Perfect Sharpness */}
-                    <div className="logo-svg-container" style={{ width: '55px', height: '60px', position: 'relative' }}>
+                <div className="logo" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                    {/* SVG Implementation of User's Logo */}
+                    <div className="logo-svg-container" style={{ width: '45px', height: '50px', position: 'relative' }}>
                         <svg viewBox="0 0 100 110" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '100%', filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.2))' }}>
                             {/* Sun Rays */}
                             <path d="M50 25V10M50 25L50 15" stroke="#fbbf24" strokeWidth="2" strokeLinecap="round" />
@@ -58,7 +61,7 @@ const Header = () => {
                             <path d="M75 50C75 36.1929 63.8071 25 50 25C36.1929 25 25 36.1929 25 50" fill="#fbbf24" />
 
                             {/* Shield */}
-                            <path d="M20 50H80V70C80 86.5685 66.5685 100 50 100C33.4315 100 20 86.5685 20 70V50Z" fill="#0f172a" stroke="#fbbf24" strokeWidth="1" />
+                            <path d="M20 50H80V70C80 86.5685 66.5685 100 50 100C33.4315 100 20 86.5685 20 86.5685 20 70V50Z" fill="#0f172a" stroke="#fbbf24" strokeWidth="1" />
 
                             {/* Bar Graph & Arrow */}
                             <rect x="35" y="75" width="6" height="15" rx="1" fill="white" />
@@ -71,10 +74,10 @@ const Header = () => {
                         </svg>
                     </div>
                     <div style={{ paddingLeft: '0px' }}>
-                        <h1 style={{
-                            fontSize: '1.4rem',
+                        <h1 className="logo-text" style={{
+                            fontSize: '1.2rem',
                             fontWeight: '700',
-                            letterSpacing: '2px',
+                            letterSpacing: '1.5px',
                             margin: 0,
                             fontFamily: "'Manrope', sans-serif",
                             textTransform: 'uppercase'
@@ -82,10 +85,10 @@ const Header = () => {
                             SUN <span style={{ color: '#fbbf24' }}>INSURANCE</span>
                         </h1>
                         <p style={{
-                            fontSize: '0.65rem',
+                            fontSize: '0.6rem',
                             color: '#d1d5db',
                             margin: 0,
-                            letterSpacing: '3px',
+                            letterSpacing: '2px',
                             textTransform: 'uppercase'
                         }}>Premium Finance</p>
                     </div>
@@ -97,9 +100,10 @@ const Header = () => {
                         display: 'none',
                         background: 'none',
                         border: 'none',
-                        color: '#fbbf24',
+                        color: '#ffffff',
                         fontSize: '1.8rem',
-                        cursor: 'pointer'
+                        cursor: 'pointer',
+                        padding: '5px'
                     }}
                     className="mobile-menu-toggle"
                 >
@@ -107,28 +111,78 @@ const Header = () => {
                 </button>
 
                 <style>{`
-                    @media (max-width: 768px) {
+                    @media (max-width: 900px) {
                         .mobile-menu-toggle { display: block !important; }
+                        
+                        /* Ensure the header container spreads logo and button */
+                        .header-inner {
+                            padding-left: 20px !important;
+                            padding-right: 20px !important;
+                        }
+
+                        /* Remove nav from flex flow on mobile so button goes to right */
+                        nav {
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            width: 0;
+                            height: 0;
+                        }
+
                         nav ul {
                             display: ${mobileMenuOpen ? 'flex' : 'none'} !important;
                             flex-direction: column;
-                            position: absolute;
-                            top: 100%;
-                            left: 0;
-                            width: 100%;
+                            position: fixed;
+                            top: 0;
+                            left: auto; /* Reset left */
+                            right: 0;   /* Align to right */
+                            width: 75%; /* Drawer width */
+                            max-width: 300px;
+                            height: 100vh;
                             background-color: #022c22;
-                            padding: 40px;
-                            border-bottom: 2px solid #fbbf24;
+                            padding: 100px 40px 40px !important;
+                            align-items: flex-start;
+                            justify-content: flex-start;
+                            z-index: 1000; /* Highest z-index */
+                            box-shadow: -10px 0 30px rgba(0,0,0,0.5); /* Shadow on left side */
+                            border-left: 1px solid rgba(251, 191, 36, 0.2);
                         }
-                        nav ul li { margin-bottom: 20px; text-align: center; }
-                        nav ul li a { font-size: 1.3rem !important; font-family: 'Playfair Display', serif; }
+                        nav ul li { 
+                            margin-bottom: 25px; 
+                            text-align: left;
+                            width: 100%; 
+                            border-bottom: 1px solid rgba(251, 191, 36, 0.1);
+                            padding-bottom: 15px;
+                        }
+                        nav ul li a { 
+                            font-size: 1.5rem !important; 
+                            font-family: 'Playfair Display', serif; 
+                            display: block;
+                        }
+                        header { padding: 15px 0 !important; }
                     }
-                    @media (min-width: 769px) {
-                        nav ul { display: flex !important; flex-direction: row; position: static; background: transparent; padding: 0; }
+                    @media (min-width: 901px) {
+                        nav ul { display: flex !important; flex-direction: row; position: static; background: transparent; padding: 0; height: auto; }
                     }
                 `}</style>
 
-                <nav>
+                {/* Mobile Menu Backdrop/Overlay Check */}
+                {mobileMenuOpen && (
+                    <div
+                        onClick={() => setMobileMenuOpen(false)}
+                        style={{
+                            position: 'fixed',
+                            top: 0,
+                            left: 0,
+                            width: '100vw',
+                            height: '100vh',
+                            zIndex: 998,
+                            display: window.innerWidth <= 900 ? 'block' : 'none'
+                        }}
+                    ></div>
+                )}
+
+                <nav style={{ zIndex: 1000 }}>
                     <ul style={{ display: 'flex', gap: '40px', alignItems: 'center' }}>
                         {['Home', 'Services', 'Partners', 'About'].map((item) => (
                             <li key={item}>

@@ -4,14 +4,14 @@ const About = () => {
     return (
         <section id="about" className="section-padding">
             <div className="container">
-                <div style={{
+                <div className="about-content-wrapper" style={{
                     display: 'flex',
                     flexDirection: 'row',
                     alignItems: 'center',
                     gap: '60px',
                     flexWrap: 'wrap'
                 }}>
-                    <div style={{ flex: '1 1 300px' }}>
+                    <div className="about-map" style={{ flex: '1 1 300px' }}>
                         <div style={{
                             position: 'relative',
                             padding: '10px',
@@ -22,7 +22,7 @@ const About = () => {
                             height: '400px'
                         }}>
                             <iframe
-                                src="https://maps.google.com/maps?layer=c&cbll=8.8010786,78.1349415&cbp=12,192.09,,0,5&output=svembed"
+                                src="https://maps.google.com/maps?layer=c&cbll=8.803243,78.1416406&cbp=12,132.7,,0,0&output=svembed"
                                 width="100%"
                                 height="100%"
                                 style={{ border: 0, borderRadius: '8px' }}
@@ -34,7 +34,7 @@ const About = () => {
                         </div>
                     </div>
 
-                    <div style={{ flex: '1 1 500px' }}>
+                    <div className="about-text" style={{ flex: '1 1 min(500px, 100%)' }}>
                         <h2 className="heading-display" style={{ fontSize: '2.5rem', marginBottom: '25px', textAlign: 'left' }}>About Sun Insurance</h2>
                         <h4 style={{ color: '#fff', fontSize: '1.4rem', marginBottom: '15px' }}>
                             Led by Mr. Somasundaram (Sundar)
@@ -46,7 +46,7 @@ const About = () => {
                             Specializing in Vehicle and Health insurance, we partner with top-tier providers like Chola MS and IFFCO Tokio to ensure claims are settled fast and support is always available. Additionally, our Small Finance division helps turn your dream of owning a vehicle into reality.
                         </p>
 
-                        <div style={{ display: 'flex', gap: '20px', marginTop: '40px' }}>
+                        <div className="stats-container" style={{ display: 'flex', gap: '20px', marginTop: '40px' }}>
                             <div style={{
                                 padding: '20px 30px',
                                 background: 'rgba(251, 191, 36, 0.05)',
@@ -69,6 +69,18 @@ const About = () => {
                             </div>
                         </div>
                     </div>
+                    <style>{`
+                        @media (max-width: 900px) {
+                            .about-content-wrapper {
+                                flex-direction: column !important;
+                                gap: 40px !important;
+                            }
+                            .about-text {
+                                text-align: left !important;
+                                padding-left: 0 !important;
+                            }
+                        }
+                    `}</style>
                 </div>
             </div>
         </section>

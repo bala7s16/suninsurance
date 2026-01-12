@@ -59,7 +59,7 @@ const Contact = () => {
                                     <div style={{ width: '40px', height: '40px', background: 'rgba(251, 191, 36, 0.1)', display: 'grid', placeItems: 'center', color: '#fbbf24', borderRadius: '50%' }}>📍</div>
                                     <div>
                                         <h5 style={{ color: '#fff', marginBottom: '5px', fontFamily: "'Playfair Display', serif", fontSize: '1.2rem' }}>Office</h5>
-                                        <p style={{ color: '#9ca3af' }}>123, Polepettai Main Road,<br />Thoothukudi - 628002</p>
+                                        <p style={{ color: '#9ca3af' }}>1st Floor, Vasanth & Co complex, Balavinayagar Kovil Street,<br />Thoothukudi - 628002</p>
                                     </div>
                                 </div>
                                 <div style={{ display: 'flex', gap: '20px' }}>
@@ -73,7 +73,7 @@ const Contact = () => {
                                     <div style={{ width: '40px', height: '40px', background: 'rgba(251, 191, 36, 0.1)', display: 'grid', placeItems: 'center', color: '#fbbf24', borderRadius: '50%' }}>✉️</div>
                                     <div>
                                         <h5 style={{ color: '#fff', marginBottom: '5px', fontFamily: "'Playfair Display', serif", fontSize: '1.2rem' }}>Email</h5>
-                                        <p style={{ color: '#9ca3af' }}>contact@suninsurance.com</p>
+                                        <p style={{ color: '#9ca3af' }}>sundar@suninsurance.com</p>
                                     </div>
                                 </div>
                             </div>
